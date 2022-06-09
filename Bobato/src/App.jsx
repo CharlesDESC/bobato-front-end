@@ -1,45 +1,64 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import Home from "./homePages/homePage.jsx";
+import { Login } from "./loginAndRegister/login";
+import { Headers, Footers } from "./structure/structure";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Layout, Button, Card } from "antd";
+import { Register } from "./loginAndRegister/register";
+
+const { Header, Footer, Sider, Content } = Layout;
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+    <>
+      <Layout>
+        <Header
+          style={{
+            height: 130,
+          }}
+        >
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Headers />} />
+              <Route path="/Login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+
+            </Routes>
+          </BrowserRouter>
+        </Header>
+        <Layout>
+          <Sider>
+            <Card
+              style={{
+                width: 300,
+              }}
+              cover={
+                <img
+                  alt="example"
+                  src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                />
+              }
+            ></Card>
+          </Sider>
+          <Content></Content>
+        </Layout>
+        <Layout>
+          <Content>Content</Content>
+          <Sider>Sider</Sider>
+        </Layout>
+        <Footer>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Footers />} />
+            </Routes>
+          </BrowserRouter>
+        </Footer>
+      </Layout>
+    </>
+  );
 }
 
-export default App
+export default App;
