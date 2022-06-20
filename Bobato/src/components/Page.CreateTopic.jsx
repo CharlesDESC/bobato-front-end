@@ -20,7 +20,7 @@ export default function ({ token }) {
       }),
     });
     console.log(token)
-    window.location('/')
+    window.location = "/"
   };
 
   return (
