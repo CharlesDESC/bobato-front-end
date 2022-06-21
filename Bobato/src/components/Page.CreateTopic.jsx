@@ -1,26 +1,26 @@
 import React from "react";
+import { getCookie } from "./helpers";
 
 export default function ({ token }) {
   const title = React.useRef();
   const content = React.useRef();
   const theme = React.useRef();
+
   
 
   const createTopic = async () => {
     await fetch("http://localhost:55/api/createTopic", {
       method: "POST",
-      // headers: {
-      //   Authorization: token,
-      // },
+      headers: {
+        Authorization: token,
+      },
       body: JSON.stringify({
         title: title.current.value,
         theme: theme.current.value,
         content: content.current.value,
-        userID: token
       }),
     });
-    console.log(token)
-    window.location('/')
+    window.location="/"
   };
 
   return (

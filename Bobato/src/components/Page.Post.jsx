@@ -18,14 +18,14 @@ export default function ({ token }) {
   const [comments, setComments] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(`http://localhost:55/api/topic/${id}`)
+    fetch(`http://localhost:55/api/topics/${id}`)
       .then((data) => data.json())
       .then(({ topic, comments }) => {
         setTopic(topic);
         setComments(comments || []);
       });
   }, []);
-
+  
   return (
     <div className="Page">
       <header>

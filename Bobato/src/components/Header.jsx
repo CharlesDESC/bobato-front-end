@@ -4,7 +4,7 @@ import { deleteCookies } from "./helpers";
 
 import css from "./Header.module.css";
 
-function AuthenticatedNavigation({ setToken, name, setUserName }) {
+function AuthenticatedNavigation({ setToken, userName, setUserName }) {
   const navigate = useNavigate();
 
   function logout() {
@@ -16,7 +16,7 @@ function AuthenticatedNavigation({ setToken, name, setUserName }) {
 
   return (
     <div className="flex">
-      <div>{name}</div>
+      <div>{userName}</div>
       <button className="Button" onClick={logout}>
         Se déconnecter
       </button>

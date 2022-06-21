@@ -30,7 +30,7 @@ export default function ({ token }) {
           <thead>
             <tr>
               <th>Sujet</th>
-              <th>Réponses</th>
+              <th>Theme</th>
             </tr>
           </thead>
           <tbody>
@@ -38,14 +38,14 @@ export default function ({ token }) {
               return (
                 <tr key={key}>
                   <td>
-                    <Link to={`/topic/${row.id}`}>
+                    <Link to={`/topic/${row.ID}`}>
                       <h3 dangerouslySetInnerHTML={{ __html: row.title }}></h3>
                       <div>
                         Par {row.name}, le {timestampToDate(row.date)}
                       </div>
                     </Link>
                   </td>
-                  <td>{row.answers}</td>
+                  <td>{row.theme}</td>
                 </tr>
               );
             })}
